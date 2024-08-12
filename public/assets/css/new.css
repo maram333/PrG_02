@@ -1,0 +1,414 @@
+/* Main CSS */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(270deg, #000, #333); /* Black to dark gray gradient background */
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite; /* Animation for background gradient shift */
+    direction: rtl; /* Set the text direction to right-to-left */
+    text-align: right;
+    position: relative; /* Position relative for pseudo-elements */
+    overflow: hidden; /* Hide overflow for stars */
+    animation: fadeIn 1.5s ease-in-out; /* Animation for body fade-in */
+}
+
+/* Starry Background */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 1%, transparent 50%);
+    background-size: 50px 50px;
+    z-index: -1; /* Place behind content */
+    animation: stars 100s linear infinite; /* Animation for stars */
+}
+
+/* Header */
+#header {
+    background-color: rgba(51, 51, 51, 0.9); /* Semi-transparent header */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    animation: slideDown 1s ease-out; /* Animation for header slide down */
+}
+
+#header .logo img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
+    animation: bounceIn 2s ease; /* Animation for logo bounce in */
+}
+
+#header .content .inner h1 {
+    margin: 0;
+    font-size: 2.5em;
+    animation: fadeIn 2s ease-in-out; /* Animation for h1 fade-in */
+}
+
+#header .content .inner p {
+    margin: 10px 0 0;
+    font-size: 1.2em;
+    animation: fadeIn 2.5s ease-in-out; /* Animation for p fade-in */
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+    display: flex;
+    justify-content: center; /* Center the navigation items */
+    flex-direction: row; /* Keep items in a row */
+    animation: fadeIn 3s ease-in-out; /* Animation for nav fade-in */
+}
+
+nav ul li {
+    margin: 0 15px;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+    animation-delay: calc(0.2s * var(--i)); /* Delay based on index */
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1em;
+    padding: 10px 15px;
+    background-color: #444;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #555;
+    transform: scale(1.1); /* Scale animation on hover */
+}
+
+/* Section */
+.section {
+    display: none; /* Hide all sections by default */
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+    text-align: center; /* Center-align content for better presentation */
+}
+
+/* Active section */
+#about {
+    display: block; /* Display the About section by default */
+}
+
+/* Heading in section */
+.section h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin: 0 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #ddd; /* Add a border under the heading */
+    font-weight: bold;
+}
+
+/* Image styling */
+.section img {
+    width: 60%; /* Make image smaller and responsive */
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow to the image */
+}
+
+/* Paragraph styling */
+.section p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #444;
+    text-align: justify;
+    margin: 0 0 20px; /* Margin to separate paragraphs */
+    padding: 0 20px; /* Add padding for better readability */
+}
+
+.section ul {
+    text-align: right; /* Ensure the list inside sections aligns to the right */
+}
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Star Animation */
+@keyframes stars {
+    from {
+        background-position: 0% 0%;
+    }
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #header .content .inner h1 {
+        font-size: 2em;
+    }
+
+    nav ul {
+        flex-direction: column; /* Stack items vertically */
+        justify-content: center;
+        align-items: center; /* Center the items vertically */
+    }
+
+    nav ul li {
+        margin: 10px 0;
+        animation-delay: 0s;
+    }
+}
+
+/* Contact Form Styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-clear {
+    background-color: #f44336;
+    margin-right: 10px;
+}
+
+.btn-clear:hover {
+    background-color: #e53935;
+    transform: scale(1.05);
+}
+
+.btn-submit {
+    background-color: #4caf50;
+}
+
+.btn-submit:hover {
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.footer-content p {
+    margin: 0;
+    font-size: 1em;
+    color: #fff;
+}
+
+.social-media-icons {
+    margin: 20px 0;
+}
+
+.social-icon {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.social-icon img {
+    width: 24px;
+    height: 24px;
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.social-icon img:hover {
+    opacity: 0.8;
+    transform: scale(1.1);
+}
+
+
+@import url("//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css");
+
+body { background-color: #eee; }
+
+.footer-social-links{
+    font-size: 14px;
+  text-align: center;
+  margin-top: 20%;
+}
+.footer-social-links a{
+    width: 25px;
+    height: 25px;
+    line-height: 25px !important;
+    position: relative;
+    margin: 0 5px;
+    text-align: center;
+    display: inline-block;
+    color: #111;
+    
+    -webkit-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);  
+    -moz-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000); 
+    -o-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
+    -ms-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000); 
+    transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
+}
+.footer-social-links a i,
+.footer-social-links a span{
+    position: relative;
+    top: 2px;
+    left: 1px; 
+}
+.footer-social-links a:before{
+    content: "";
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid #111;
+    
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+    
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+    
+    -webkit-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);  
+    -moz-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000); 
+    -o-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
+    -ms-transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000); 
+    transition: all 0.27s cubic-bezier(0.300, 0.100, 0.580, 1.000);
+    
+}
+.footer-social-links a:hover{
+    color: #fff;
+}
+.footer-social-links a:hover:before{
+    background: #111;
+}
+
+.social-icon i {
+    font-size: 24px; /* Adjust size as needed */
+    color: #000; /* Adjust color as needed */
+    margin-right: 10px; /* Space between icons */
+    margin-top: 20px; /* Space above the social icons to push them down */
+}
+
+
+
+.footer-content .copyright a {
+    color: #007bff; /* Set the color of the link */
+    text-decoration: none; /* Remove underline from link */
+}
+
+.footer-content .copyright a:hover {
+    color: #0056b3; /* Change color on hover */
+}
+
+
+
