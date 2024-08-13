@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Panorama</title>
+    <title>بانوراما القصيم للبرمجة والتصميم</title>
     <link rel="stylesheet" href="assets/css/new.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
@@ -11,45 +11,49 @@
         html, body {
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Prevent horizontal overflow */
+            overflow-x: hidden; 
         }
-
+       
         #wrapper {
-            max-width: 100vw; /* Prevent overflow on larger screens */
-            overflow-y: auto; /* Ensure vertical scrolling */
+            max-width: 100vw; 
+            overflow-y: auto; 
         }
 
         #content {
-            min-height: 100vh; /* Ensure the content area has enough height */
-            box-sizing: border-box; /* Include padding and border in element's total width and height */
+            min-height: 100vh; 
+            box-sizing: border-box; 
         }
 
         #content .section img {
-            max-width: 100%; /* Make images responsive */
-            height: auto; /* Maintain aspect ratio */
-            display: block; /* Ensure images are block-level */
-            margin-bottom: 1em; /* Space below the images */
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+            margin-bottom: 1em; 
         }
 
         #content .section h2 {
             margin-top: 2em;
             margin-bottom: 1em;
-            font-size: 1.5em; /* Adjust font size as needed */
+            font-size: 1.5em; 
         }
 
         #content .section ul {
-            padding-left: 1.5em; /* Space for list bullets */
+            padding-left: 1.5em; 
         }
 
         #content .section p {
-            margin-bottom: 1em; /* Space between paragraphs */
-            line-height: 1.6; /* Improved readability */
+            margin-bottom: 1em; 
+            line-height: 1.6; 
         }
     </style>
 </head>
 <body>
-    <!-- Starry Background -->
-    <div class="stars"></div>
+        <style>
+         body {
+         background-image: url('images/b.gif');
+         background-size: cover;
+        } 
+        </style>
 
     <!-- START HEADER -->
     <header id="header">
