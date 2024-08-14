@@ -15,3 +15,7 @@ Route::get('/messages', [ContactController::class, 'index'])->name('messages.ind
 Route::get('login', [LoginController::class, 'showLoginForm'])->name('login');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
