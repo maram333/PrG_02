@@ -237,7 +237,8 @@
            <div id="contact" class="section">
                <h1>تواصل معنا</h1>
                <h2>اترك لنا رسالتك</h2>
-               <form action="/submit-form" method="post">
+               <form id="contactForm" action="{{ route('contact.store') }}" method="post">
+               @csrf
                     <div class="form-group">
                         <label for="name">الاسم</label>
                         <input type="text" id="name" name="name" placeholder="ادخل اسمك" required>
@@ -258,6 +259,15 @@
                         <button type="submit" class="btn-submit">ارسال</button>
                    </div>
               </form>
+              <!-- Success Message -->
+              <div id="successMessage" style="display:none; color: green;">
+                 Message Sent Successfully!
+              </div>
+              <div id="errorMessage" style="display:none; color: red;">
+                 An error occurred.
+              </div>
+
+              
            </div>
 
         </div>
@@ -309,5 +319,36 @@
             showSection('about');
         });
     </script>
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            var formData = new FormData(this);
+
+            fetch('{{ route('contact.store') }}', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    document.getElementById('successMessage').style.display = 'block';
+                    document.getElementById('errorMessage').style.display = 'none';
+                } else {
+                    document.getElementById('errorMessage').style.display = 'block';
+                    document.getElementById('successMessage').style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('errorMessage').style.display = 'block';
+                document.getElementById('successMessage').style.display = 'none';
+            });
+        });
+    </script>
+
 </body>
 </html>
